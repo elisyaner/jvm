@@ -15,10 +15,10 @@ import java.lang.ref.ReferenceQueue;
 public class PhantomReferenceDemo {
     /**
      * 虚引用
-     * 配合引用队列使用
+     * 配合引用队列使用:虚/弱引用，构造器传入引用队列，在gc前，被标记gc的对象会被置入引用队列。
      * 虚引用作用主要是跟踪对象被垃圾回收的状态，仅仅提供一种确保对象被finalize之后，做某些事情的机制
      * 设置虚引用关联的唯一目的，就是在这个对象被垃圾回收的时候收到一个系统通知或后续添加进一步处理。
-     * java允许使用finalize()方法在垃圾回收器将对象从内存中清除之前做必要的清理动作
+     * java允许使用finalize()方法在垃圾回收器将对象从内存中清除之前做必要的清理动作，相当于一种通知机制
      *
      * @param args
      */
@@ -41,7 +41,6 @@ public class PhantomReferenceDemo {
         System.out.println(o1);
         System.out.println(phantomReference.get());
         System.out.println(queue.poll());
-
     }
 
 }
